@@ -29,21 +29,21 @@ The data loading is done at line #14, @**data = readtable('AAPL_historical_data.
 
 ### Performance
 ![paroli_10](paroli_10.png)
-AAPL from Jan 2020 to Jan 2024, showing 20&40 SMA, Sell, Entry, Paroli points, and oustanding position size. Paroli lot size @ 10 (10 addition lots invested per Paroli cycle).
+##### AAPL from Jan 2020 to Jan 2024, showing 20&40 SMA, Sell, Entry, Paroli points, and oustanding position size. Paroli lot size @ 10 (10 addition lots invested per Paroli cycle).
 ![asset_10](asset_10.png)
-Asset accumulation over time.
-Balance at start of Jan 2024 (end): $17675.31177201533
-CAGR: 15.3033%
-Sharpe: 7.365238399486266
+##### Asset accumulation over time.
+##### Balance at start of Jan 2024 (end): $17675.31177201533
+##### CAGR: 15.3033%
+##### Sharpe: 7.365238399486266
 
 We can compare the performance of this configuration with a system with 0 Paroli lot size (effectively disabling the Paroli system).
 ![paroli_0](paroli_0.png)
-AAPL from Jan 2020 to Jan 2024, showing 20&40 SMA, Sell, Entry, Paroli points, and oustanding position size. Paroli lot size @ 0 (0 addition lots invested per Paroli cycle).
+##### AAPL from Jan 2020 to Jan 2024, showing 20&40 SMA, Sell, Entry, Paroli points, and oustanding position size. Paroli lot size @ 0 (0 addition lots invested per Paroli cycle).
 ![asset_0](asset_0.png)
-Asset accumulation over time.
-Balance at start of Jan 2024 (end): $15461.00870661287
-CAGR: 11.5089%
-Sharpe: 9.631431722044068
+##### Asset accumulation over time.
+##### Balance at start of Jan 2024 (end): $15461.00870661287
+##### CAGR: 11.5089%
+##### Sharpe: 9.631431722044068
 
 The algorithm with 10 lot Paroli outperforms 0 lot Paroli by 14.3% percent. Do note that this example is just one example, and greater sample size is needed for numerical valdiation. But this preliminary study shows the potential of such a system.
 
