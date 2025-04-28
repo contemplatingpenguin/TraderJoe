@@ -2,6 +2,8 @@
 ### Introduction
 This algorithm uses a 20-40 datapoint Simple-Moving-Average crossover mechanism with additional implementation of Paroli system for trading.
 
+The main idea is to use the 20-40 datapoint SMA crossover as the main strategy, and then using the Paroli system to capitalize on the momentum of a bullish stock.
+
 Paroli system can be summerized as a *betting system where you increase your bet after each successive win*, capitalizing on winning streaks. Think of it as the opposite of systems where you increase your bet after a loss (like the Martingale).
 1. Start with a base bet size.
 2. If you win, take your original bet plus your winnings and bet that larger amount in the next round.
@@ -12,7 +14,9 @@ The 20-40 datapoint Simple-Moving-Average crossover is a commonly used technique
 
 The objective of this study was to comprehend the performance of the Paroli system when implemented in an already robust 20-40 SMA crossover technique, as well as in a wider scope to compare the algorithm against others in terms of metric performance.
 
-This current version runs on historical data, taking $APPL for study. Scraping live data from APIs can be expensive (hardware & software)!
+In the script, the balance is split into two accounts; capital and outstanding position size. Capital is the leftover balance (cash account) and is subject to 3% interest capital gain; outstanding position size is the balance invested into stock, not subject to 3%.
+
+This current version runs on historical data, taking $AAPL for study. Scraping live data from APIs can be expensive (hardware & software)!
 
 ### Usage
 The user defined variables are detailed in the Starting Varible section.
@@ -26,3 +30,11 @@ The user defined variables are detailed in the Starting Varible section.
 The data loading is done at line #14, @*data = readtable('AAPL_historical_data.csv');*.
 
 ### Performance
+![paroli_10](paroli_10.png)
+AAPL from Jan 2020 to Jan 2024, showing 20&40 SMA, Sell, Entry, Paroli points, and oustanding position size. Paroli lot size @ 10 (10 addition lots invested per Paroli cycle).
+![asset_10](asset_10.png)
+Asset accumulation over time.
+Balance at Jan 2024 (end): $17675.31177201533
+
+We can compare the performance of this configuration with a system with 0 Paroli lot size (effectively disabling the Paroli system).
+
